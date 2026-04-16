@@ -32,10 +32,13 @@ function mooText() {
   let text = textArea.value.toUpperCase();
 
   let sentences = text.split(".");
+
   for (let i = 0; i < sentences.length - 1; i++) {
-    sentences[i] = sentences[i].trim();
-    if (sentences[i] !== "") {
-      sentences[i] += "-MOO";
+    let words = sentences[i].trim().split(" ");
+
+    if (words.length > 0) {
+      words[words.length - 1] += "-MOO";
+      sentences[i] = words.join(" ");
     }
   }
 
